@@ -1,0 +1,118 @@
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h2 class="display-5 fw-bold">Pending Reimbursements</h2>
+    <div class="container">
+    <button 
+        type="button" 
+        class="btn btn-info bm-5"
+        (click)="toggleAdd()">
+        Submit Reimbursement
+    </button>
+      <div *ngIf="flag">
+          <form class="form-inline tm-5">
+              <label for="userId" class="mb-2 mr-sm-2">User ID:</label>
+              <input 
+                  type="text" 
+                  class="form-control mb-2 mr-sm-2" 
+                  id="userId" 
+                  placeholder="Enter User ID" 
+                  name="UserId"
+                  [(ngModel)]="userInfo.userId">
+             <label for="rbDate" class="mb-2 mr-sm-2">Date:</label>
+              <input 
+                  type="date" 
+                  class="form-control mb-2 mr-sm-2" 
+                  id="rbDate" 
+                  placeholder="Enter Date" 
+                  name="ReimbursementDate"
+                  [(ngModel)]="newRequest.rbDate">
+              <label for="rbAmount" class="mb-2 mr-sm-2">Amount:</label>
+              <input 
+                  type="text" 
+                  class="form-control mb-2 mr-sm-2" 
+                  id="rbAmount" 
+                  placeholder="Enter Amount" 
+                  name="ReimbursementAmount"
+                  [(ngModel)]="newRequest.rbAmount">
+                <label for="rbStatus">Status:</label>
+                <select id="rbStatus" name="ReimbursementStatus">
+                    <option value="pending">pending</option>
+                </select>
+              <button 
+                  type="button" 
+                  class="btn btn-warning mb-2"
+                  (click)="addReimbursement()">Submit</button>
+            </form>  
+        </div>
+      </div>
+    <div></div>
+      <table class="table table-striped table-condensed">
+        <thead class="thead-dark">
+          <tr>
+            <th>Reimbursement ID</th>
+            <th>User ID</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Cancel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reimbursement of PendingRequests">
+            <td>{{ reimbursement.rbId }}</td>
+            <td>{{ reimbursement.userId}}</td>
+            <td>{{ reimbursement.rbDate }}</td>
+            <td>{{ reimbursement.rbAmount }}</td>
+            <td>{{ reimbursement.rbStatus | uppercase }}</td>
+            <td>
+              <button 
+                  type="button" 
+                  class="btn btn-primary btn-sm"
+                  (click)="toggleAdd()">
+                  <span class="material-icons">edit</span>
+              </button>
+              <div *ngIf="flag">
+                <form class="form-group tm-5">
+                  <label for="rbId" class="mb-2 mr-sm-2">Reimbursement ID:</label>
+                  <input 
+                      type="text" 
+                      class="form-inline mb-2 mr-sm-2" 
+                      id="rbId" 
+                      placeholder="Enter Reimbursement ID" 
+                      name="rbId"
+                      [(ngModel)]="newRequest.rbId">
+                  <label for="rbDate" class="mb-2 mr-sm-2">Date:</label>
+                  <input 
+                      type="date" 
+                      class="form-inline mb-2 mr-sm-2" 
+                      id="rbDate" 
+                      placeholder="Enter Date" 
+                      name="ReimbursementDate"
+                      [(ngModel)]="newRequest.rbDate">
+                  <label for="rbAmount" class="mb-2 mr-sm-2">Amount:</label>
+                  <input 
+                      type="text" 
+                      class="form-inline mb-2 mr-sm-2" 
+                      id="rbAmount" 
+                      placeholder="Enter Amount" 
+                      name="ReimbursementAmount"
+                      [(ngModel)]="newRequest.rbAmount">
+                  <button 
+                      type="button" 
+                      class="btn btn-warning mb-2"
+                      (click)="goToEditComponent(reimbursement.rbId)">Update</button>
+                </form>
+              </div>
+            </td>
+            <td>
+                <button
+                    type="button" class="btn btn-danger btn-sm" (click)="deleteRequest(reimbursement.rbId)">
+                    <span class="material-icons">delete</span>
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+       
+    </div>

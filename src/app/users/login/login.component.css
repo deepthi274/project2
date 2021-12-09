@@ -1,0 +1,253 @@
+
+  .jumbotron {
+   height: 80vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px!important;
+  }
+  .jumbotron h1 {
+    margin: 30px 0;
+    font-size: 30px;
+    line-height: 1.5;
+  }
+  .intro {
+    padding-top: 160px;
+  }
+  .intro img {
+    width: 220px;
+  }
+  
+  .a11y-hidden {
+    position: absolute;
+    left: -1000em;
+  }
+  
+  form {
+    margin-top: 15px;
+    --border: rgba(0, 0, 0, 0.125);
+    --borderDark: rgba(0, 0, 0, 0.25);
+    --borderDarker: rgba(0, 0, 0, 0.5);
+    --borderRadius: 0.125rem;
+    --bgColorH: 0;
+    --bgColorS: 0%;
+    --bgColorL: 98%;
+    --fgColorH: 210;
+    --fgColorS: 50%;
+    --fgColorL: 38%;
+    --errorMessage: #dd0000;
+    --errorBackground: #fff5f5;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--borderRadius);
+    box-shadow: 0 1rem 1rem -0.75rem var(--border);
+    padding: 45px;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+  }
+  
+  .errorMessage {
+    background: var(--errorBackground);
+    border: 1px solid var(--errorMessage);
+    border-radius: var(--borderRadius);
+    color: var(--errorMessage);
+    font-size: 0.825rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .errorMessage:empty {
+    display: none;
+  }
+
+  .error {
+    color: #dd0000;
+  }
+  
+  input,
+  button {
+    border: 1px solid var(--border);
+    border-radius: var(--borderRadius);
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 2.25rem;
+    line-height: 1.25rem;
+    margin-top: 0.25rem;
+    outline: 1px solid transparent;
+    outline-offset: 2px;
+    padding: 0.25rem 0.5rem;
+    transition: all 0.25s;
+    width: 15rem;
+  }
+  
+  input:focus {
+    outline: 1px solid transparent hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+  }
+  
+  label {
+    display: inline-block;
+  }
+  
+  label span {
+    color: var(--borderDarker);
+    display: block;
+    font-size: 0.825rem;
+    margin-top: 1rem;
+    transition: color 0.25s;
+  }
+  
+  label.required span::after {
+    content: "*";
+    color: var(--errorMessage);
+    margin-left: 0.125rem;
+  }
+  
+  label:hover span {
+    color: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+  }
+  
+  label:hover input,
+  label:hover span.checkbox-label::before {
+    border-color: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+  }
+  
+  label:hover input[type="checkbox"]:checked + span.checkbox-label::after {
+    background: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+  }
+  
+  label:focus-within span,
+  label.state-focus span {
+    color: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+  }
+  
+  label input:focus,
+  label:focus-within input,
+  label:focus-within span.checkbox-label::before,
+  label.state-focus input,
+  label.state-focus span.checkbox-label::before {
+    border-color: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+  }
+  
+  label:focus-within input[type="checkbox"]:checked + span.checkbox-label::after,
+  label.state-focus input[type="checkbox"]:checked + span.checkbox-label::after {
+    background: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+  }
+  
+  
+  label.state-error span {
+    color: var(--errorMessage);
+  }
+  
+  label.state-error input {
+    border-color: var(--errorMessage);
+  }
+  
+  button[type="button"] {
+    color: hsl(var(--bgColorH), var(--bgColorS), var(--bgColorL));
+    background: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding-left: 0;
+    text-transform: uppercase;
+    transition: all 0.125s;
+    cursor: pointer;
+  }
+  
+  button[type="button"]:focus,
+  button[type="button"]:hover {
+    background: hsl(var(--fgColorH), var(--fgColorS), calc(var(--fgColorL) * 0.85));
+  }
+  
+  button[type="button"]:active {
+    background: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+  }
+  
+  input[type="checkbox"] + span {
+    margin-top: 0.25rem;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  
+  input[type="checkbox"] + span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 1px solid var(--borderDark);
+    border-radius: var(--borderRadius);
+    transition: all 0.25s;
+    outline: 1px solid transparent;
+    outline-offset: 2px;
+  }
+  
+  input[type="checkbox"]:focus + span::before {
+    outline: 1px solid transparent hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+    outline-offset: 2px;
+  }
+  
+  input[type="checkbox"]:checked + span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.1875rem;
+    width: 0.375rem;
+    height: 0.375rem;
+    border: 1px solid var(--borderDark);
+    border-radius: var(--borderRadius);
+    transition: all 0.25s;
+    outline: 1px solid transparent;
+    outline-offset: 2px;
+    background: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+  }
+  
+  .forgot-password {
+    margin-top: 0.125rem;
+    text-align: center;
+  }
+  
+  .forgot-password a {
+    color: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+    font-size: 0.825rem;
+    text-align: center;
+    margin-top: 0.25rem;
+    outline: 1px solid transparent;
+    outline-offset: 2px;
+    display: inline;
+    transition: 0.25s;
+  }
+  
+  .forgot-password a:focus {
+    color: hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+    outline: 1px solid hsl(var(--fgColorH), calc(var(--fgColorS) * 2), calc(var(--fgColorL) * 1.15));
+  }
+  
+  .forgot-password a:hover {
+    color: hsl(var(--fgColorH), var(--fgColorS), calc(var(--fgColorL) * 0.85));
+  }
+
+  .background{
+    margin-top: 15px;
+    background-image: url(https://lh3.googleusercontent.com/rmQC8PA5UJX97Bfi37iPX_7iZzu12iNumGh5l0wkulTNFpmbWrG5C7B527lNFtbF8GVViw7u_OjpMwcaFNZcCq9u6cdh5JY59Z-mwPK8Hx3WLcLGXAlt5UgLprRN04ZfIkuF2cQU_TUhSWy_5FInklXYcJ83xquJ1xqDRDWuJJrYh2T9Fuv_zfoL1a4ZUwhIXn-jmKccmMNIgE8BpzhxdgCmjwuBHM0pBe2D3N0KDLaSLwURoNFT2yD1TZuZWZED45pddmZDV_LKKoKOnBAkr2UdApE8Ay__Ws6UKfZdZP7e6boY-mXaQluZrgtFm4E5TYP8lOFsUQyQzTEb2KUvN7r_6t-bC_QC56nFgXysK3tdsFraqN-WGW4Dweev9tmxnjq70tnTp46WLxDxJC8giSYJPB4Ml3GjQJj116FJt2m8Z1URmdVb_nFoF3obe0V2VnklZHsnFD9Ugg2g-BIqiQRknYRsEKK7enk3heFdpCkry3ZJmjTBP8vdDYDkGrCYPsB36E2EijXCPx_2FhSwETFbp6919O3n_LDNFVmP0C5Yx-3qqtahnFNhZqU5UkJYWT9LR44I45mSmi0OdEgfxB9PCFZOkABd4UzimKkH5u7VYpup258U1HKwzDcsBJ5T6GYTYu5rfDAw9pB3s2pwtiuNeSXFAlO2uj6FUSD7JD9ReFBs8MIQ27A_Tq62Sb1XMVCOtMDPntZunV-mgt1E3eM);
+    background-size: cover;
+    background-color: darkslategray;
+    background-position: center center;
+    height: 800px;
+    opacity: 150%;
+    margin-bottom: 5px;
+  }
+
+
+ 
+
+
+ 
+
+ 
+
+  
+  
+ 

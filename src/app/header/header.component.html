@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Medici</a>
+  
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li 
+          class="nav-item" 
+          *ngIf="isLoggedIn() && retrieveUserType() == 'employee'">
+          <a class="nav-link" routerLink="hello-employee">Home</a>
+        </li>
+      <li 
+          class="nav-item"
+          *ngIf="isLoggedIn() && retrieveUserType() == 'manager'">
+          <a class="nav-link" routerLink="hello-manager">Home</a>
+        </li>
+      <li 
+        class="nav-item"
+        *ngIf="!isLoggedIn()">
+        <a class="nav-link" routerLink="login">Login</a>
+      </li>
+  
+      <!-- Dropdown Employee (REIMBURSEMENTS) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && retrieveUserType() == 'employee'">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Reimbursements
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="reimbursement-submit">Manage Reimbursements</a>
+          <a class="dropdown-item" routerLink="reimbursement-resolved-emp">View Resolved</a>
+        </div>
+      </li>
+      <!-- Dropdown Employee (ACCOUNT) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && retrieveUserType() == 'employee'">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Account
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="user-edit">Update Information</a>
+        </div>
+      </li>
+    
+      <!-- Dropdown Manager (REIMBURSEMENTS) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && retrieveUserType() == 'manager'">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Reimbursements
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="reimbursement-pending">Manage Reimbursements</a>
+          <a class="dropdown-item" routerLink="reimbursement-employee">View Employee Reimbursements</a>
+          <a class="dropdown-item" routerLink="reimbursement-edit">Update Reimbursement</a>
+          <a class="dropdown-item" routerLink="reimbursement-resolved">View Resolved</a>
+        </div>
+      </li>
+      <!-- Dropdown Manager (EMPLOYEES) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && retrieveUserType() == 'manager'">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Employee
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="manager">Manage Employees</a>
+        </div>
+      </li>
+      <!-- Dropdown Manager (ACCOUNT) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && retrieveUserType() == 'manager'">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Account
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="user-edit">Manage Information</a>
+        </div>
+      </li>
+      <li 
+        class="nav-item"
+        *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink="logout">Logout</a>
+      </li>
+    </ul>
+  
+  
+  </nav>
+ 
